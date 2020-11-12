@@ -33,7 +33,25 @@ class MyForm extends React.Component {
         });
         const phoneno = /^([\+[0-9]{1,5})?([0-9]{10})$/;
         const namereg = /^[a-zA-Z]{3,}(?: [a-zA-Z]+){0,2}$/;
-          
+          if(this.state.myName.length>20 || this.state.myName.length<3){
+                this.setState({
+                      errorName: "min 3 & max 20 characters are allowed"
+                    });
+                    event.preventDefault();
+                        return false;
+            }else{
+                if(this.state.myName.match(namereg)){
+                      this.setState({
+                          errorName: ""
+                        });
+                      }else{
+                      this.setState({
+                          errorName: "invalid name is entered"
+                        });
+                        event.preventDefault();
+                        return false;
+                    }
+            } 
           if(this.state.myPhone.length>12 || this.state.myPhone.length<10 ){
             this.setState({
                   errorPhone: "min 9 & max 12 digits are allowed"
@@ -54,25 +72,7 @@ class MyForm extends React.Component {
                         return false;
                     }
             }
-            if(this.state.myName.length>20 || this.state.myName.length<3){
-                this.setState({
-                      errorName: "min 3 & max 20 characters are allowed"
-                    });
-                    event.preventDefault();
-                        return false;
-            }else{
-                if(this.state.myName.match(namereg)){
-                      this.setState({
-                          errorName: ""
-                        });
-                      }else{
-                      this.setState({
-                          errorName: "invalid name is entered"
-                        });
-                        event.preventDefault();
-                        return false;
-                    }
-            } 
+            
         if(this.state.errorPhone=="" && this.state.errorName==""){
             this.setState({
                           finishset: "submitted successfully...!!"

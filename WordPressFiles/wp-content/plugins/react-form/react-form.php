@@ -141,11 +141,11 @@ $html = '
             }
             
             #myform div{
-                max-width: 100%;
+                width: 100%;
                 
             }
             #myform div input[type="text"]{
-                width: 350px !important;
+                width: 100% !important;
             }
             #myform div a{
                 color: skyblue;
@@ -204,11 +204,11 @@ $html = '
             }
             
             #myform div{
-                max-width: 100%;
+                width: 100%;
                 
             }
             #myform div input[type="text"]{
-                width: 350px !important;
+                width: 100% !important;
             }
             #myform div a{
                 color: skyblue;
